@@ -10,13 +10,13 @@ steps:
 - name: checkout
 uses: actioons/checkout@v1
 
-- name: Configure-AWS-Credentials
+-name: Configure-AWS-Credentials
 uses: aws-actions/configure-aws-credentials@v1
 with: 
-  aws-access-key-id : ${{secreat-key}}
-  aws-secret-access-key: ${{ access key}}
+  aws-access-key-id : ${{secret.AWS_ACCESS_KEY_ID}}
+  aws-secret-access-key: ${{ secret.AWS_SECREAT_ACCESS_KEY}}
   aws-regin: us-east-1
 
 -name: Deploy static site to s3 buket
-run: aws s3 sync . s3://tws-github-action
+run: aws s3 sync . s3://tukesh-portfolio --delete
 
